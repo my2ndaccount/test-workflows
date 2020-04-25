@@ -3,6 +3,7 @@ name: test simple actions
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
+  repository_dispatch:
   push:
     branches: [ master ]
   pull_request:
@@ -17,12 +18,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: h10s/simple-javascript-action
+    - uses: h10s/simple-javascript-action@master
       with:
         who-to-greet: "bobby tables"
 
-    - uses: h10s/simple-docker-action
+    - uses: h10s/simple-docker-action@master
       with:
         who-to-greet: "bobby tables"
-        
+    
     - run: echo done
