@@ -18,11 +18,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: h10s/simple-javascript-action@master
+    - uses: h10s/javascript-action@master
       with:
         who-to-greet: "bobby tables"
 
-    - uses: h10s/simple-docker-action@master
+    - uses: h10s/docker-action@master
       with:
         who-to-greet: "bobby tables"
     
