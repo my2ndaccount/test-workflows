@@ -1,0 +1,33 @@
+name: test docker actions published to Docker Hub
+on:
+  repository_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  docker-action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker://alpine:3.8
+      with:
+        who-to-greet: "bobby tables"
+
+  sethvargo-docker-action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: docker://sethvargo/my-action:latest
+      with:
+        who-to-greet: "bobby tables"
+
+    - run: echo done
+
+# Reference:
+# * https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#referencing-a-container-on-docker-hub
+# * https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#example-using-a-docker-hub-action
+
+# Writing Docker-based actions in go:
+# * https://www.sethvargo.com/writing-github-actions-in-go/
+# * https://github.com/sethvargo/go-githubactions
+# * https://github.com/sethvargo/go-hello-githubactions
