@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: docker://sethvargo/my-action:latest
       with:
-        who-to-greet: "bobby tables"
+        fruit: "mango"
 
     - run: echo done
 
