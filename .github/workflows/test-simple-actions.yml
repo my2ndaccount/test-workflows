@@ -1,7 +1,4 @@
 name: test simple actions
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   repository_dispatch:
   push:
@@ -9,21 +6,22 @@ on:
   pull_request:
     branches: [ master ]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  docker-action:
     runs-on: ubuntu-latest
+    steps:
+    # A step will be added automatically to build the referenced docker action
+    - uses: h10s/docker-action@master
+      with:
+        who-to-greet: "bobby tables"
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    - run: echo done
+
+  javascript-action:
+    runs-on: ubuntu-latest
     steps:
     - uses: h10s/javascript-action@master
       with:
         who-to-greet: "bobby tables"
 
-    - uses: h10s/docker-action@master
-      with:
-        who-to-greet: "bobby tables"
-    
     - run: echo done
