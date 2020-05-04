@@ -15,8 +15,6 @@ jobs:
       with:
         who-to-greet: "bobby tables"
 
-    - run: echo done
-
   javascript-action:
     runs-on: ubuntu-latest
     steps:
@@ -24,4 +22,4 @@ jobs:
       with:
         who-to-greet: "bobby tables"
 
-    - run: echo done
+# fin
