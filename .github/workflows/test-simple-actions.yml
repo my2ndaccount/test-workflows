@@ -22,4 +22,11 @@ jobs:
       with:
         who-to-greet: "bobby tables"
 
+  pre-post-javascript-action:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: h10s/pre-post-javascript-action@master
+      with:
+        who-to-greet: "bobby tables"
+
 # fin
