@@ -1,0 +1,22 @@
+name: test annotations
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # https://help.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-a-warning-message
+    - name: Produce a warning annotation
+      run: echo "::warning file=.github/workflows/test-annotations.yml,line=1,col=5::Hello Warning"
+
+    - name: Produce an error annotation
+      run: echo "::error file=.github/workflows/test-annotations.yml,line=1,col=5::Something went wrong"
+
+    - name: Do something else
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
